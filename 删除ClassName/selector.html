@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器</title>
+</head>
+<body>
+
+<div class="box box2 box3"></div>
+<div class="box"></div>
+<div class="box2"></div>
+<div class="box5"></div>
+
+<script>
+	var nodeList = document.getElementsByClassName("box box2");
+	console.log(document.querySelector('.box'));
+
+
+	//查询并拼接字符串
+	
+	function deleteClassName(dom, className) {
+		if (arguments.length < 2 ) {throw "arg error !!!"}
+		var domClassName = dom.className;
+		var index        = 0;
+		var classList    = domClassName.split(/\s+/);
+		var classLength  = classList.length;
+
+		for(var i = 0; i < classLength; i++){
+			if(className == classList[i]){
+				index = i;
+				break;
+			}
+		}
+
+		classList.splice(index, 1);
+		dom.className = classList.join(" ");
+	}
+
+	deleteClassName(document.querySelector('.box'), "box3");
+
+
+
+</script>
+</body>
+</html>
